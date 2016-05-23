@@ -100,7 +100,7 @@ var jwt = require('jsonwebtoken');
  function generateJwt(user, options) {
    return jwt.sign(
      extractPayload(user, options),
-     process.env.TOKEN_SECRET,
+     process.env.JWT_SECRET,
      jwtOptions
    );
  }
@@ -137,7 +137,7 @@ var jwt = require('jsonwebtoken');
   * server's middleware stack (if it exists).
   */
  function verifyJwtAndHandleErrors(token, next, cb) {
-   jwt.verify(token, process.env.TOKEN_SECRET, function(err, decoded) {
+   jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
      if (err && err.name === 'TokenExpiredError') {
        next({
          status:  401,

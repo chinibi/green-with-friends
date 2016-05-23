@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var dbUri = process.env.MLAB_URI ||
             'mongodb://localhost/' + process.env.LOCAL_DB;
 
-if (!env.MLAB_URI) {
+if (!process.env.MLAB_URI) {
   // check that MongoD is running...
   require('net').connect(27017, 'localhost').on('error', function() {
     console.log("YOU MUST BOW BEFORE THE MONGOD FIRST, MORTAL!");

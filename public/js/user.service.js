@@ -18,7 +18,7 @@
     function create(data) {
       var promise = $http({
         method: 'POST',
-        url:    '/users',
+        url:    '/api/users',
         data:   data
       });
 

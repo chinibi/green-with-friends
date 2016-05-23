@@ -8,9 +8,9 @@ var usersCtrl = require('../controllers/users');
 var token = require('../config/token_auth');
 
 // users resource paths:
-router.post('/users',    usersCtrl.create);
-router.get( '/users/me', token.authenticate, usersCtrl.me);
+router.post('/api/users',    usersCtrl.create);
+router.get( '/api/users/me', token.authenticate, usersCtrl.me);
 
-router.post('/token',    token.create);
+router.post('/api/token',    token.create);
 
 module.exports = router;
