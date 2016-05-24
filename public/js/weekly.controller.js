@@ -5,9 +5,9 @@
     .module("app")
     .controller("WeeklyController", WeeklyController);
 
-  WeeklyController.$inject = ["$state", "$http", "WeeklyResource", "userService"]
+  WeeklyController.$inject = ["$state", "$http", "$window", "WeeklyResource", "userService"]
 
-  function WeeklyController($state, $http, WeeklyResource, userService) {
+  function WeeklyController($state, $http, $window, WeeklyResource, userService) {
     var vm = this;
 
     vm.weekly = [];
@@ -17,12 +17,14 @@
 
     getWeekly();
     function getWeekly() {
-      userService.me()
-        .then()
-      WeeklyResource.get().$promise
-        .then(weekly => {
-          vm.weekly = weekly
-        })
+      $http({
+        method: 'GET',
+        url: "/api/weekly",
+      })
+      .then(weekly => {
+        console.log(weekly.data)
+        vm.weekly = weekly.data;
+      })
     }
 
     function checkbox(challenge) {
@@ -30,10 +32,21 @@
 
       completed = !completed
 
-      WeeklyResource.update({id: "574381becd7bc0b87359dfd4"}, vm.weekly).$promise.then(updated => {
-        vm.weekly = updated;
+      // WeeklyResource.update({username: req.decoded.username}, vm.weekly).$promise.then(updated => {
+      //   vm.weekly = updated;
+      //   $state.go('weekly')
+      // })
+
+      $http({
+        method: 'PUT',
+        url: '/api/weekly',
+        data: vm.weekly
+      })
+      .then(updated => {
+        vm.weekly = updated
         $state.go('weekly')
       })
+      .catch(err => console.log(err))
     }
   }
 })();
