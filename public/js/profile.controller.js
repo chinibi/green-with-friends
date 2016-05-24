@@ -4,15 +4,23 @@
     .module('app')
     .controller('ProfileController', ProfileController)
 
-  ProfileController.$inject = ['$http', '$window', 'userService']
+  ProfileController.$inject = ['$http']
 
   function ProfileController($http, $window, userService) {
     var vm = this;
-    var token = $window.localStorage.getItem('shmee-banana');
 
-    vm.user = null;
+    vm.badges = [];
 
-    userService.me()
-      .then(user => vm.user = user.data)
+    showBadges();
+    function showBadges() {
+      $http({
+        method: 'GET',
+        url: '/api/users/me',
+      })
+      .then(user => {
+        console.log(user)
+        vm.badges = user.data.data.badges
+      })
+    }
   }
 })();
