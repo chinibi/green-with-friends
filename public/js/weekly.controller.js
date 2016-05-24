@@ -5,9 +5,9 @@
     .module("app")
     .controller("WeeklyController", WeeklyController);
 
-  WeeklyController.$inject = ["$state", "WeeklyResource"]
+  WeeklyController.$inject = ["$state", "$http", "WeeklyResource", "userService"]
 
-  function WeeklyController($state, WeeklyResource) {
+  function WeeklyController($state, $http, WeeklyResource, userService) {
     var vm = this;
 
     vm.weekly = [];
@@ -17,6 +17,8 @@
 
     getWeekly();
     function getWeekly() {
+      userService.me()
+        .then()
       WeeklyResource.get().$promise
         .then(weekly => {
           vm.weekly = weekly

@@ -21,7 +21,9 @@
       })
       .state("profile", {
         url:         "/profile",
-        templateUrl: "/js/profile.html"
+        templateUrl: "/js/profile.html",
+        controller:  "ProfileController",
+        controllerAs: "pc"
       })
       .state("weekly", {
         url:          "/weekly",

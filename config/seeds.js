@@ -1,3 +1,4 @@
+require('dotenv').load();
 var mongoose = require('./database');
 
 var User = require('../models/user');
@@ -6,7 +7,8 @@ var Weekly = require('../models/weekly');
 var users = [
   { username: 'admin',
     displayname: 'admin',
-    password: 'password'
+    password: process.env.ADMIN_PASSWORD,
+    badges: ['Energy Saver', 'Water Conservation', 'Tree Hugger', 'Trekker']
   }
 ];
 
@@ -47,9 +49,6 @@ User
       }
     })
   })
-  // .then(function() {
-  //   process.exit(0);
-  // });
 
 
 Weekly
