@@ -10,12 +10,15 @@ function show(req, res, next) {
       // console.log(weekly)
       // console.log(req.headers)
       thisWeekly = weekly.toObject();
-      console.log('username: ' + req.decoded.username)
       return User.findOne({username: req.decoded.username}).exec()
     })
     .then(user => {
-      console.log(user)
-      if (user.weekly.week !== weekId) {
+      if (typeof user.weekly[0] === 'undefined') {
+        user.weekly = thisWeekly;
+        user.save()
+        res.json(user.weekly[0])
+      }
+      else if (user.weekly[0].week !== weekId) {
         user.weekly = thisWeekly;
         user.save()
         res.json(user.weekly[0])
@@ -40,14 +43,23 @@ function show(req, res, next) {
 // }
 
 function update(req, res, next) {
+  console.log('update function called')
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
-      console.log(user)
-      user.weekly.challenges = req.body.challenges;
-      user.save()
-    }, err => console.log(err))
-    .then(saved => res.json(saved))
-    .catch(err => console.log(err))
+      console.log('-----USER.CHALLENGES-----')
+      console.log(user.weekly[0].challenges)
+      console.log('-----REQ.BODY-----')
+      console.log(req.body.challenges)
+      user.weekly[0].challenges = req.body.challenges
+      console.log('BEFORE SAVE\n' + user.weekly[0].challenges)
+      user.save((err, saved) => {
+        if (err) console.log(`ERROR: ${err}`);
+        else {
+          console.log(`SAVED: ${saved.weekly[0].challenges}`);
+          res.json(saved);
+        }
+      })
+    })
 }
 
 module.exports = {

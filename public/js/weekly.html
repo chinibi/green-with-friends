@@ -7,7 +7,9 @@
   <table class='table container-fluid'>
     <tr ng-repeat='challenge in wc.weekly.challenges'>
       <td>{{challenge.description}}</td>
-      <td><input type='checkbox' ng-model='challenge.completed' ng-click='wc.checkbox(challenge)'/></td>
+      <td>
+        <input type='checkbox' name='challenges[{{$index}}]' ng-model='challenge.completed' ng-click='wc.checkbox(challenge)'/>
+      </td>
       <td>{{challenge.completed}}</td>
     </tr>
   </table>

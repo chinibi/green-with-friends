@@ -22,7 +22,6 @@
         url: "/api/weekly",
       })
       .then(weekly => {
-        console.log(weekly.data)
         vm.weekly = weekly.data;
       })
     }
@@ -43,10 +42,12 @@
         data: vm.weekly
       })
       .then(updated => {
-        vm.weekly = updated
+        console.log('FRONTEND RESPONSE')
+        console.log(updated)
+        console.log(updated.data.weekly[0])
+        vm.weekly = updated.data.weekly[0]
         $state.go('weekly')
       })
-      .catch(err => console.log(err))
     }
   }
 })();

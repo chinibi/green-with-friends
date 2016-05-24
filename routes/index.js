@@ -17,6 +17,6 @@ router.post('/api/token',    token.create);
 
 // get the challenges for this week
 router.get('/api/weekly', token.authenticate, weeklyCtrl.show);
-router.put('/api/weekly', weeklyCtrl.update);
+router.put('/api/weekly', token.authenticate, weeklyCtrl.update);
 
 module.exports = router;
