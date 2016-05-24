@@ -9,6 +9,7 @@ var weeklySchema = new mongoose.Schema({
   description: String,
   badge: String,
   date: String,
+  week: Number,
   challenges: [challengeSchema]
 });
 

@@ -1,0 +1,16 @@
+<div class='weekly'>
+  <h1>{{wc.weekly.badge}}</h1>
+  <h4>{{wc.weekly.date}}</h4>
+  <p>
+    {{wc.weekly.description}}
+  </p>
+  <table class='table container-fluid'>
+    <tr ng-repeat='challenge in wc.weekly.challenges'>
+      <td>{{challenge.description}}</td>
+      <td><input type='checkbox' ng-model='challenge.completed' ng-click='wc.checkbox(challenge)'/></td>
+      <td>{{challenge.completed}}</td>
+    </tr>
+  </table>
+
+  <button class='btn disabled'>Finish</button>
+</div>

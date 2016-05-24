@@ -1,9 +1,24 @@
 var mongoose = require('mongoose');
 
+var challengeSchema = new mongoose.Schema({
+  description: String,
+  completed: {type: Boolean, default: false}
+});
+
+var personalWeeklySchema = new mongoose.Schema({
+  description: String,
+  badge: String,
+  date: String,
+  week: Number,
+  challenges: [challengeSchema]
+});
+
 var userSchema = mongoose.Schema({
   username: {type: String, unique: true, required: true},
   displayname: {type: String, required: true},
-})
+  badges: [{type: String}],
+  weekly: [personalWeeklySchema]
+});
 
 // add bcrypt hashing to model (works on a password field)!
 userSchema.plugin(require('mongoose-bcrypt'));

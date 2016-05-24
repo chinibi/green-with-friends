@@ -22,6 +22,12 @@
       .state("profile", {
         url:         "/profile",
         templateUrl: "/js/profile.html"
+      })
+      .state("weekly", {
+        url:          "/weekly",
+        templateUrl:  "/js/weekly.html",
+        controller:   "WeeklyController",
+        controllerAs: "wc"
       });
 
     $urlRouterProvider.otherwise("/");
