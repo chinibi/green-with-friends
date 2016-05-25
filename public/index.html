@@ -21,7 +21,7 @@
   <div class="container-fluid">
     <header ng-controller="NavbarController as vm">
       <nav class="navbar navbar-default">
-        <div class="container">
+        <div class="container" ng-cloak>
           <a ui-sref="welcome" class="navbar-brand">Home</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
           <button ng-show="vm.authService.isLoggedIn()" ui-sref="weekly" type="button" class="btn btn-default navbar-btn">This week's challenges</button>
