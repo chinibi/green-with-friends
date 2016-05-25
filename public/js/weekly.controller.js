@@ -14,6 +14,8 @@
     vm.challenge = {};
     vm.getWeekly = getWeekly;
     vm.checkbox = checkbox;
+    vm.allDone = false;
+    vm.checkAllDone = checkAllDone;
 
     getWeekly();
     function getWeekly() {
@@ -26,15 +28,10 @@
       })
     }
 
-    function checkbox(challenge) {
+    function changeCompletion(challenge) {
       var completed = vm.weekly.challenges[vm.weekly.challenges.indexOf(challenge)].completed;
 
       completed = !completed
-
-      // WeeklyResource.update({username: req.decoded.username}, vm.weekly).$promise.then(updated => {
-      //   vm.weekly = updated;
-      //   $state.go('weekly')
-      // })
 
       $http({
         method: 'PUT',
@@ -49,5 +46,21 @@
         $state.go('weekly')
       })
     }
+
+    function checkAllDone() {
+      var done = true;
+      vm.weekly.challenges.forEach(challenge => {
+        console.log('challenge complete: ' + challenge.completed)
+        if (!challenge.completed) {done = false}
+        console.log('allDone: ' + done)
+      })
+      vm.allDone = done
+    }
+
+    function checkbox(challenge) {
+      changeCompletion(challenge);
+      checkAllDone();
+    }
+
   }
 })();
