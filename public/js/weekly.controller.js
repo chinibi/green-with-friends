@@ -16,6 +16,7 @@
     vm.checkbox = checkbox;
     vm.allDone = false;
     vm.checkAllDone = checkAllDone;
+    vm.goToProfile = goToProfile;
 
     getWeekly();
     function getWeekly() {
@@ -55,9 +56,11 @@
       checkAllDone();
     }
 
-    function getBadge() {
-      return vm.allDone
+    function goToProfile() {
+      $state.go('profile')
     }
+
+
 
   }
 })();
