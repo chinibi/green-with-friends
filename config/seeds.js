@@ -8,7 +8,7 @@ var users = [
   { username: 'admin',
     displayname: 'admin',
     password: process.env.ADMIN_PASSWORD,
-    badges: ['Energy Saver', 'Water Conservation', 'Tree Hugger', 'Trekker']
+    badges: ['images/Water.png', 'images/Leaf.png', 'images/Energy.png']
   }
 ];
 
@@ -32,7 +32,6 @@ var weeklies = [
     challenges: [
       {description: 'Plant a tree'},
       {description: 'Hug a tree'},
-      {description: ''},
       {description: 'Take a walk around your local park.'},
       {description: "Warm day? Rest in a tree's shade"}
     ]

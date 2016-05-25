@@ -1,5 +1,12 @@
-<ul>
+<!-- <ul>
   <li ng-repeat='badge in pc.badges track by $index'>
-    {{badge}}
+    <img src='{{badge}}' />
   </li>
-</ul>
+</ul> -->
+<h1>Your badges</h1>
+
+<div class='container-fluid'>
+  <div class='col-sm-6' ng-repeat='badge in pc.badges track by $index'>
+    <img src='{{badge}}' />
+  </div>
+</div>
