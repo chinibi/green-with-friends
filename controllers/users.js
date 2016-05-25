@@ -2,8 +2,8 @@ var User = require("../models/user");
 // var Weekly = require("../models/weekly");
 
 module.exports = {
-  create: create,
-  me:     me
+  create:     create,
+  me:         me
 };
 
 function create(req, res, next) {
@@ -46,7 +46,3 @@ function me(req, res, next) {
       next(err);
     });
 };
-
-function showWeekly(req, res, next) {
-
-}

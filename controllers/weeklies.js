@@ -1,6 +1,12 @@
 var Weekly = require('../models/weekly');
 var User = require('../models/user');
 
+module.exports = {
+  show:       show,
+  update:     update,
+  awardBadge: awardBadge
+}
+
 function show(req, res, next) {
   var weekId;
   var thisWeekly;
@@ -34,17 +40,20 @@ function update(req, res, next) {
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
       user.weekly[0].challenges = req.body.challenges
-      user.save((err, saved) => {
-        if (err) console.log(`ERROR: ${err}`);
-        else {
-          console.log(`SAVED: ${saved.weekly[0].challenges}`);
-          res.json(saved);
-        }
-      })
+      return user.save()
     })
+    .then(saved => res.json(saved))
+    .catch(err => next(err))
 }
 
-module.exports = {
-  show: show,
-  update: update
+function awardBadge(req, res, next) {
+  User.findOne({username: req.decoded.username}).exec()
+    .then(user => {
+      // push badge into user.badges
+      user.badges.push(req.body.badge)
+      return user.save()
+    })
+    .then(saved => {
+      res.json(saved)
+    })
 }

@@ -5,20 +5,23 @@
     .module("app")
     .controller("WeeklyController", WeeklyController);
 
-  WeeklyController.$inject = ["$state", "$http", "$window", "WeeklyResource", "userService"]
+  WeeklyController.$inject = ["$state", "$http", "$document", "WeeklyResource", "userService"]
 
-  function WeeklyController($state, $http, $window, WeeklyResource, userService) {
+  function WeeklyController($state, $http, $document, WeeklyResource, userService) {
     var vm = this;
 
-    vm.weekly = [];
-    vm.challenge = {};
-    vm.getWeekly = getWeekly;
-    vm.checkbox = checkbox;
-    vm.allDone = false;
+    vm.weekly       = [];
+    vm.challenge    = {};
+    vm.getWeekly    = getWeekly;
+    vm.checkbox     = checkbox;
+    vm.allDone      = false;
     vm.checkAllDone = checkAllDone;
-    vm.goToProfile = goToProfile;
+    vm.awardBadge   = awardBadge
+    vm.goToProfile  = goToProfile;
 
     getWeekly();
+    // $document.ready(checkAllDone);
+
     function getWeekly() {
       $http({
         method: 'GET',
@@ -54,6 +57,14 @@
     function checkbox(challenge) {
       changeCompletion(challenge);
       checkAllDone();
+    }
+
+    function awardBadge() {
+      $http({
+        method: 'POST',
+        url: '/api/users/me',
+        data: vm.weekly
+      })
     }
 
     function goToProfile() {

@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat='badge in pc.badges'>
+  <li ng-repeat='badge in pc.badges track by $index'>
     {{badge}}
   </li>
 </ul>

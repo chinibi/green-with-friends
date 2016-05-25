@@ -11,6 +11,7 @@ var token = require('../config/token_auth');
 // users resource paths:
 router.post('/api/users',    usersCtrl.create);
 router.get( '/api/users/me', token.authenticate, usersCtrl.me);
+router.post('/api/users/me', token.authenticate, weeklyCtrl.awardBadge);
 
 router.post('/api/token',    token.create);
 

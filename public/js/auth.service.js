@@ -13,9 +13,22 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
+      logOut:     logOut,
+      username: ''
     };
+    getUsername();
     return service;
+
+    function getUsername() {
+      $http({
+        method: 'GET',
+        url: '/api/users/me'
+      })
+      .then(user => {
+        console.log(user)
+        service.username = user.data.data.username
+      })
+    }
 
     function isLoggedIn() {
       return (token.retrieve() != null);
@@ -35,6 +48,7 @@
         // handler, and pass on the decoded token.
         function(res) {
           token.store(res.data);
+          getUsername()
           return token.decode();
         }
         // since there is no error handler, pass
