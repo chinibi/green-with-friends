@@ -48,13 +48,9 @@
     }
 
     function checkAllDone() {
-      var done = true;
-      vm.weekly.challenges.forEach(challenge => {
-        console.log('challenge complete: ' + challenge.completed)
-        if (!challenge.completed) {done = false}
-        console.log('allDone: ' + done)
-      })
-      vm.allDone = done
+      vm.allDone = (vm.weekly.challenges.every(challenge => {
+        return challenge.completed
+      }))
     }
 
     function checkbox(challenge) {
