@@ -39,9 +39,6 @@
         data: vm.weekly
       })
       .then(updated => {
-        console.log('FRONTEND RESPONSE')
-        console.log(updated)
-        console.log(updated.data.weekly[0])
         vm.weekly = updated.data.weekly[0]
         $state.go('weekly')
       })
@@ -56,6 +53,10 @@
     function checkbox(challenge) {
       changeCompletion(challenge);
       checkAllDone();
+    }
+
+    function getBadge() {
+      return vm.allDone
     }
 
   }

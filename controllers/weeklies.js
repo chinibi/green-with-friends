@@ -7,8 +7,6 @@ function show(req, res, next) {
   Weekly.findOne({}).exec()
     .then(weekly => {
       weekId = weekly.week;
-      // console.log(weekly)
-      // console.log(req.headers)
       thisWeekly = weekly.toObject();
       return User.findOne({username: req.decoded.username}).exec()
     })
@@ -31,27 +29,11 @@ function show(req, res, next) {
     })
 }
 
-// function update(req, res, next) {
-//   Weekly.findOne({_id: "574381becd7bc0b87359dfd4"}).exec()
-//     .then(weekly => {
-//       weekly.challenges = req.body.challenges;
-//       weekly.save((err, saved) => {
-//         if (err) next(err)
-//         else res.json(saved)
-//       })
-//     }).catch(err => console.log(err))
-// }
-
 function update(req, res, next) {
   console.log('update function called')
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
-      console.log('-----USER.CHALLENGES-----')
-      console.log(user.weekly[0].challenges)
-      console.log('-----REQ.BODY-----')
-      console.log(req.body.challenges)
       user.weekly[0].challenges = req.body.challenges
-      console.log('BEFORE SAVE\n' + user.weekly[0].challenges)
       user.save((err, saved) => {
         if (err) console.log(`ERROR: ${err}`);
         else {
