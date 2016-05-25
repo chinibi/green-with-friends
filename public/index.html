@@ -20,7 +20,7 @@
 <body>
   <div class="container-fluid">
     <header ng-controller="NavbarController as vm">
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-default">
         <div class="container">
           <a ui-sref="welcome" class="navbar-brand">Home</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>

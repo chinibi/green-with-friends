@@ -15,7 +15,6 @@ var users = [
 var weeklies = [
   { description: 'If you use a low-flow showerhead, you can save 15 gallons of water during a 10 minute shower.',
     badge: 'Water Conservation',
-    date: 'May 16 – May 23',
     week: 1,
     challenges: [
       {description: 'Take 3 two-minute showers'},
@@ -27,14 +26,34 @@ var weeklies = [
   },
   { description: 'A single tree can absorb one ton of carbon dioxide over its lifetime.',
     badge: 'Tree Hugger',
-    date: 'May 23 – May 30',
     week: 2,
     challenges: [
       {description: 'Plant a tree'},
       {description: 'Hug a tree'},
-      {description: 'Recycle everything tree-based, like paper'},
+      {description: ''},
       {description: 'Take a walk around your local park.'},
       {description: "Warm day? Rest in a tree's shade"}
+    ]
+  },
+  { description: 'The Earth receives one kilowatt per square meter of sunlight on a clear day.',
+    badge: 'Energy Saver',
+    week: 3,
+    challenges: [
+      {description: "Walk, ride a bike, a bus, or carpool on a daily commute."},
+      {description: "Hot day? Cold day? Survive one day without the heater or air conditioner"},
+      {description: "Do your laundry and the dishes with cold water."},
+      {description: "Hang your laundry to air dry."}
+    ]
+  },
+  { description: 'Recyclables include metals, paper, cardboard, glass, plastic, batteries, light bults, and electronics.',
+    badge: 'Recycling and Waste',
+    week: 4,
+    challenges: [
+      {description: 'Gather your bottles and cans and take them to your local facility for some cash.'},
+      {description: 'Have a day where no more than one pound of garbage is produced.'},
+      {description: "Get some electronics you don't use anymore and take them to an electronics recycler."},
+      {description: 'Get a reusable bag for your groceries.'},
+      {description: 'Compost food scraps and yard waste.'}
     ]
   }
 ];
