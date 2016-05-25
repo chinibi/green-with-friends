@@ -1,11 +1,10 @@
 <div class='weekly'>
   <h1>{{wc.weekly.badge}}</h1>
+  <img src="{{wc.weekly.imgURL}}" class='img-responsive img-thumbnail' />
   <p>
     {{wc.weekly.description}}
   </p>
-  <p>
-    {{wc.allDone}}
-  </p>
+  <h3>Your challenges this week</h3>
   <table class='table container-fluid'>
     <tr ng-repeat='challenge in wc.weekly.challenges'>
       <td>{{challenge.description}}</td>

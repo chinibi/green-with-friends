@@ -15,6 +15,7 @@ var users = [
 var weeklies = [
   { description: 'If you use a low-flow showerhead, you can save 15 gallons of water during a 10 minute shower.',
     badge: 'Water Conservation',
+    imgURL: 'images/Water.png',
     week: 1,
     challenges: [
       {description: 'Take 3 two-minute showers'},
@@ -26,6 +27,7 @@ var weeklies = [
   },
   { description: 'A single tree can absorb one ton of carbon dioxide over its lifetime.',
     badge: 'Tree Hugger',
+    imgURL: 'images/Leaf.png',
     week: 2,
     challenges: [
       {description: 'Plant a tree'},
@@ -37,6 +39,7 @@ var weeklies = [
   },
   { description: 'The Earth receives one kilowatt per square meter of sunlight on a clear day.',
     badge: 'Energy Saver',
+    imgURL: 'images/Energy.png',
     week: 3,
     challenges: [
       {description: "Walk, ride a bike, a bus, or carpool on a daily commute."},
@@ -47,6 +50,7 @@ var weeklies = [
   },
   { description: 'Recyclables include metals, paper, cardboard, glass, plastic, batteries, light bults, and electronics.',
     badge: 'Recycling and Waste',
+    imgURL: 'images/Grey1.png',
     week: 4,
     challenges: [
       {description: 'Gather your bottles and cans and take them to your local facility for some cash.'},
