@@ -56,11 +56,18 @@ function awardBadge(req, res, next) {
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
       // push badge into user.badges
-        user.badges.push({
+        var newBadge = {
           name: req.body.badge,
           imgURL: req.body.imgURL
-        })
-        console.log(user.badges)
+        }
+
+        function duplicateBadge(badge) {
+          return badge.name == newBadge.name
+        }
+
+        if (!user.badges.find(duplicateBadge)) {
+          user.badges.push(newBadge)
+        }
         return user.save()
     })
     .then(saved => {
