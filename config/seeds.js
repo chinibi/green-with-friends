@@ -8,7 +8,14 @@ var users = [
   { username: 'admin',
     displayname: 'admin',
     password: process.env.ADMIN_PASSWORD,
-    badges: ['images/Water.png', 'images/Leaf.png', 'images/Energy.png']
+    badges: [
+      { name: 'Water Conservation',
+        imgURL: 'images/Water.png'
+      },
+      { name: 'Energy Saver',
+        imgURL: 'images/Energy.png'
+      }
+    ]
   }
 ];
 

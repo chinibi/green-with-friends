@@ -14,10 +14,15 @@ var personalWeeklySchema = new mongoose.Schema({
   challenges: [challengeSchema]
 });
 
+var badgeSchema = new mongoose.Schema({
+  name: {type: String, unique: true},
+  imgURL: {type: String, unique: true}
+})
+
 var userSchema = mongoose.Schema({
   username: {type: String, unique: true, required: true},
   displayname: {type: String, required: true},
-  badges: [{type: String}],
+  badges: [badgeSchema],
   weekly: [personalWeeklySchema]
 });
 

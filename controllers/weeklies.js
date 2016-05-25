@@ -56,11 +56,12 @@ function awardBadge(req, res, next) {
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
       // push badge into user.badges
-      if (user.badges.indexOf(req.body.badge.imgURL) == -1) {
-        user.badges.push(req.body.badge.imgURL)
+        user.badges.push({
+          name: req.body.badge,
+          imgURL: req.body.imgURL
+        })
+        console.log(user.badges)
         return user.save()
-      }
-      else res.json(user)
     })
     .then(saved => {
       res.json(saved)
