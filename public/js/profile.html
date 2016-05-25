@@ -8,6 +8,6 @@
 <div class='container-fluid'>
   <div class='col-sm-6' ng-repeat='badge in pc.badges track by $index'>
     <h5>{{badge.name}}</h5>
-    <img src='{{badge.imgURL}}' />
+    <img ng-src='{{badge.imgURL}}' />
   </div>
 </div>
