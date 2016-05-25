@@ -60,7 +60,7 @@ var weeklies = [
 
 User
   .remove({})
-  .then(function() {
+  .then(() => {
     User.create(users, (err, users) => {
       if (err) console.log(err);
       else {
@@ -72,7 +72,7 @@ User
 
 Weekly
   .remove({})
-  .then(function() {
+  .then(() => {
     Weekly.create(weeklies, (err, weeklies) => {
       if (err) console.log(err);
       else {

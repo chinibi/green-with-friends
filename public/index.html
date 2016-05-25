@@ -24,6 +24,7 @@
         <div class="container">
           <a ui-sref="welcome" class="navbar-brand">Home</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+          <button ng-show="vm.authService.isLoggedIn()" ui-sref="weekly" type="button" class="btn btn-default navbar-btn">This week's challenges</button>
           <button ng-show="vm.authService.isLoggedIn()" ng-click="vm.goToProfile()" type="button" class="btn btn-default navbar-btn navbar-right">{{vm.authService.username}}</button>
           <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
         </div>

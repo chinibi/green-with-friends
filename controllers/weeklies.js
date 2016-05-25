@@ -8,9 +8,15 @@ module.exports = {
 }
 
 function show(req, res, next) {
+  // rotate weekly after some time
+  // will be two minutes per rotation for
+  // demo purposes
+  var today = new Date();
+  var week = Math.floor(((today.getMinutes() % 8) / 2) + 1 );
+
   var weekId;
   var thisWeekly;
-  Weekly.findOne({}).exec()
+  Weekly.findOne({week: week}).exec()
     .then(weekly => {
       weekId = weekly.week;
       thisWeekly = weekly.toObject();
@@ -50,8 +56,11 @@ function awardBadge(req, res, next) {
   User.findOne({username: req.decoded.username}).exec()
     .then(user => {
       // push badge into user.badges
-      user.badges.push(req.body.badge)
-      return user.save()
+      if (user.badges.indexOf(req.body.badge) == -1) {
+        user.badges.push(req.body.badge)
+        return user.save()
+      }
+      else res.json(user)
     })
     .then(saved => {
       res.json(saved)
