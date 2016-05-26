@@ -1,6 +1,6 @@
-* {
+/** {
   box-sizing: border-box;
-}
+}*/
 
 #navbar {
   background-color: #34DFBB;
@@ -10,8 +10,55 @@
   margin-bottom: 0px;
 }
 
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 7px 15px;
+  width: auto;
+}
+
 .jumbotron {
   height: 100vh;
+  background-color: rgba(144,238,144,0.3);
+}
+
+.jumbotron li span {
+  opacity: 0;
+  -webkit-animation: forwards;
+  -webkit-animation-name: jumbotron-span;
+  -webkit-animation-delay: 1.5s;
+  -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes jumbotron-span {
+  from {
+    position: relative;
+    top: 15px;
+    opacity: 0.0;
+  }
+  to {
+    position: relative;
+    top: 0px;
+    opacity: 1.0;
+  }
+}
+
+.jumbotron h1 {
+  -webkit-animation-name: jumbotron-h1;
+  -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes jumbotron-h1 {
+  from {opacity: 0.0;}
+  to   {opacity: 1.0;}
+}
+
+.profile-badge {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 [ng\:cloak],
@@ -23,36 +70,46 @@
   display: none !important;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   font-family: futura;
   font-size: 18px;
+  background-color: rgba(144,238,144,0.3);
   /*padding-top: 70px;*/
 }
 
-a {
-  cursor: pointer;
+.greentext {
+  color: darkred;
 }
 
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto; /* the bottom margin is the negative value of the footer's height */
+.weekly img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-header,
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:50px;
+    height:50px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    vertical-align: middle;
+    position: relative;
+    bottom: 0 px;
+    margin-bottom: 10px;
+}
+
+input[type='checkbox']:checked {
+    background: lightgreen;
+}
+
 main,
 footer {
   text-align: center;
-}
-
-header {
-  text-transform: uppercase;
 }
 
 form {

@@ -2,21 +2,21 @@
 
 <div class='weekly'>
   <h1>{{wc.weekly.badge}}</h1>
-  <img ng-src="{{wc.weekly.imgURL}}" class='img-responsive img-thumbnail' />
   <p>
     {{wc.weekly.description}}
   </p>
+  <img class='weekly-img' ng-src="{{wc.weekly.imgURL}}" class='img-responsive' />
   <h3>Your challenges this week</h3>
   <table class='table container-fluid'>
     <tr ng-repeat='challenge in wc.weekly.challenges'>
-      <td>{{challenge.description}}</td>
+      <td class='challenge-description'>{{challenge.description}}</td>
       <td>
         <input type='checkbox' name='challenges[{{$index}}]' ng-model='challenge.completed' ng-click='wc.checkbox(challenge)'/>
       </td>
     </tr>
   </table>
 
-  <button type='button' ng-class='{btn: true, disabled: !wc.allDone}' ng-click='wc.awardBadge()' data-toggle='modal' data-target='#badgeModal' ng-disabled='!wc.allDone'>Finish</button>
+  <button type='button' class='btn btn-lg' ng-class='{"btn-success": wc.allDone, "disabled": !wc.allDone}' ng-click='wc.awardBadge()' data-toggle='modal' data-target='#badgeModal' ng-disabled='!wc.allDone'>Finish</button>
 </div>
 
 <div id="badgeModal" class="modal fade" role="dialog">
