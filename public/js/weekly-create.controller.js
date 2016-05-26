@@ -5,9 +5,9 @@
     .module("app")
     .controller("WeeklyCreateController", WeeklyCreateController);
 
-  WeeklyCreateController.$inject = ["$state", "$http"];
+  WeeklyCreateController.$inject = ["$timeout", "$state", "$http"];
 
-  function WeeklyCreateController($state, $http) {
+  function WeeklyCreateController($timeout, $state, $http) {
     var vm = this;
 
     vm.newWeekly   = {};
@@ -18,6 +18,10 @@
     vm.addChallengeField    = addChallengeField;
     vm.removeChallengeField = removeChallengeField;
     vm.createWeekly         = createWeekly;
+
+    // animations whoaaaaa
+    vm.hideThis = hideThis;
+    // vm.showThis = showThis;
 
     for (var i=1; i<=4; i++) {
       vm.challenges.push({
@@ -52,9 +56,16 @@
       })
       .then(() => {
         vm.newWeekly = {};
-        alert('new weekly created');
-        $state.go('welcome');
+        hideThis();
+        // $state.go('welcome');
       });
+    }
+
+    function hideThis() {
+      vm.startFade = true;
+      $timeout(() => {
+        vm.hidden = true;
+      }, 500)
     }
 
   }
