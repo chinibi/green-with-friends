@@ -48,6 +48,10 @@ function show(req, res, next) {
     })
 }
 
+function create(req, res, next) {
+  
+}
+
 function update(req, res, next) {
   console.log('update function called')
   User.findOne({username: req.decoded.username}).exec()
