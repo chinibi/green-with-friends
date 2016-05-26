@@ -11,24 +11,29 @@ function show(req, res, next) {
   // rotate weekly after some time
   // will be two minutes per rotation for
   // demo purposes
-  var today = new Date();
-  var week = Math.floor(((today.getMinutes() % 8) / 2) + 1 );
+  var today = Math.floor(Date.now()/60000); // this is actually Date.now() in minutes
+  var p = 2 // minutes between each rotation
 
   var weekId;
   var thisWeekly;
-  Weekly.findOne({week: week}).exec()
+
+  Weekly.count().exec()
+    .then(n => {
+      var week = Math.floor( (today % (p*n)) / p)
+      return Weekly.find().skip(week).limit(1).exec()
+    })
     .then(weekly => {
-      weekId = weekly.week;
-      thisWeekly = weekly.toObject();
+      thisBadge = weekly[0].badge;
+      thisWeekly = weekly[0];
       return User.findOne({username: req.decoded.username}).exec()
     })
     .then(user => {
-      if (typeof user.weekly[0] === 'undefined') {
+      if (typeof user.weekly[0].badge === 'undefined') {
         user.weekly = thisWeekly;
         user.save()
         res.json(user.weekly[0])
       }
-      else if (user.weekly[0].week !== weekId) {
+      else if (user.weekly[0].badge !== thisBadge) {
         user.weekly = thisWeekly;
         user.save()
         res.json(user.weekly[0])
