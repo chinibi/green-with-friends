@@ -1,7 +1,3 @@
-/** {
-  box-sizing: border-box;
-}*/
-
 #navbar {
   background-color: #34DFBB;
 }
@@ -65,18 +61,20 @@
   opacity: 1;
 }
 
+.pageload {
+  animation: forwards;
+  animation-name: pageload;
+  animation-duration: 0.9s;
+}
+
+@keyframes pageload {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+
 .profile-badge {
   margin-left: auto;
   margin-right: auto;
-}
-
-[ng\:cloak],
-[ng-cloak],
-[data-ng-cloak],
-[x-ng-cloak],
-.ng-cloak,
-.x-ng-cloak {
-  display: none !important;
 }
 
 body {
