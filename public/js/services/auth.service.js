@@ -25,7 +25,6 @@
         url: '/api/users/me'
       })
       .then(user => {
-        console.log(user)
         service.username = user.data.data.username
       })
     }

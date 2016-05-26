@@ -11,29 +11,29 @@
     $stateProvider
       .state("welcome", {
         url:         "/",
-        templateUrl: "/js/welcome.html"
+        templateUrl: "/js/templates/welcome.html"
       })
       .state("signin", {
         url:          "/signin",
-        templateUrl:  "/js/signin.html",
+        templateUrl:  "/js/templates/signin.html",
         controller:   "SignInController",
         controllerAs: "vm"
       })
       .state("profile", {
         url:         "/profile",
-        templateUrl: "/js/profile.html",
+        templateUrl: "/js/templates/profile.html",
         controller:  "ProfileController",
         controllerAs: "pc"
       })
       .state("weekly", {
         url:          "/weekly",
-        templateUrl:  "/js/weekly.html",
+        templateUrl:  "/js/templates/weekly.html",
         controller:   "WeeklyController",
         controllerAs: "wc"
       })
       .state("weekly-new", {
         url:          "/new-weekly",
-        templateUrl:  "/js/weekly-create.html",
+        templateUrl:  "/js/templates/weekly-create.html",
         controller:   "WeeklyCreateController",
         controllerAs: "wcc"
       });

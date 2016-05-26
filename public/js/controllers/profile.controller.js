@@ -18,7 +18,6 @@
         url: '/api/users/me',
       })
       .then(user => {
-        console.log(user)
         vm.badges = user.data.data.badges
       })
     }
