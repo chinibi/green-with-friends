@@ -21,7 +21,7 @@
 
     // animations whoaaaaa
     vm.hideThis = hideThis;
-    // vm.showThis = showThis;
+    vm.showThis = showThis;
 
     for (var i=1; i<=4; i++) {
       vm.challenges.push({
@@ -57,7 +57,10 @@
       .then(() => {
         vm.newWeekly = {};
         hideThis();
-        // $state.go('welcome');
+        $timeout(showThis(), 500)
+        $timeout(() => {
+          $state.go('welcome')
+        }, 2000)
       });
     }
 
@@ -65,6 +68,13 @@
       vm.startFade = true;
       $timeout(() => {
         vm.hidden = true;
+      }, 500)
+    }
+
+    function showThis() {
+      vm.startEmerge = true;
+      $timeout(() => {
+        vm.emerge = true;
       }, 500)
     }
 

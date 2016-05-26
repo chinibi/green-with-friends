@@ -60,6 +60,11 @@
   opacity: 0;
 }
 
+.emerge {
+  transition: opacity: 0.5s;
+  opacity: 1;
+}
+
 .profile-badge {
   margin-left: auto;
   margin-right: auto;
