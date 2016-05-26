@@ -10,7 +10,6 @@
   margin-bottom: 0px;
 }
 
-
 .navbar-brand {
   padding: 0px;
 }
@@ -77,6 +76,14 @@ body {
   /*padding-top: 70px;*/
 }
 
+a {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .greentext {
   color: darkred;
 }
@@ -110,6 +117,17 @@ input[type='checkbox']:checked {
 main,
 footer {
   text-align: center;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+footer {
+  font-size: 14px;
+  padding-top: 14px;
+  border-top: 1px solid gray;
+  color: rgba(0,0,0,0.4);
 }
 
 form {

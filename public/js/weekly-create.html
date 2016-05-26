@@ -6,24 +6,25 @@
 
     <div class="form-group">
       <label for="badge">Badge Name</label>
-      <input ng-model="wcc.badge" name="badge" class="form-control" id="badge" />
+      <input ng-model="wcc.badge" name="badge" class="form-control" id="badge" required/>
       <label for="description">Description</label>
-      <input ng-model="wcc.description" name="description" type="text-field" class="form-control" id="description" />
+      <input ng-model="wcc.description" name="description" class="form-control" id="description" required/>
       <label for="imgURL">Image URL</label>
-      <input ng-model="wcc.imgURL" name="imgURL" class="form-control" id="imgURL" />
+      <input ng-model="wcc.imgURL" name="imgURL" class="form-control" id="imgURL" required/>
     </div>
 
     <div class="form-group">
       Challenges
       <div class="input-group" ng-repeat="challenge in wcc.challenges">
-        <input class="form-control" ng-model="challenge.description" />
+        <input class="form-control" ng-model="challenge.description" required />
         <span class="input-group-btn">
           <button class="btn btn-danger" ng-click="wcc.removeChallengeField(challenge)" type="button">×</button>
         </span>
       </div>
+
+      <a ng-click="wcc.addChallengeField()"><small>Add another challenge</small></a>
     </div>
 
-    <a ng-click="wcc.addChallengeField()">Add another challenge</a>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 
