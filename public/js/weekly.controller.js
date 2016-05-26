@@ -5,9 +5,9 @@
     .module("app")
     .controller("WeeklyController", WeeklyController);
 
-  WeeklyController.$inject = ["$state", "$http", "$document", "WeeklyResource", "userService"]
+  WeeklyController.$inject = ["$state", "$http"]
 
-  function WeeklyController($state, $http, $document, WeeklyResource, userService) {
+  function WeeklyController($state, $http) {
     var vm = this;
 
     vm.weekly       = [];
@@ -20,7 +20,6 @@
     vm.goToProfile  = goToProfile;
 
     getWeekly();
-    // $document.ready(checkAllDone);
 
     function getWeekly() {
       $http({

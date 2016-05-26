@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 
 var challengeSchema = new mongoose.Schema({
-  description: String,
+  description: {type: String, required: true},
   completed: {type: Boolean, default: false}
 });
 
 var weeklySchema = new mongoose.Schema({
   description: String,
-  badge: String,
+  badge: {type: String, required: true},
   imgURL: String,
   date: String,
   week: Number,

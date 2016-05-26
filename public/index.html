@@ -40,6 +40,9 @@
               <a ng-show="vm.authService.isLoggedIn()" ui-sref="weekly">This week's challenges</a>
             </li>
             <li>
+              <a ng-show="vm.authService.isLoggedIn()" ui-sref="weekly-new">Create new weekly</a>
+            </li>
+            <li>
               <a ng-show="vm.authService.isLoggedIn()" ng-click="vm.goToProfile()">{{vm.authService.username}}</a>
             </li>
             <li>
@@ -78,6 +81,7 @@
   <script src="/js/auth.service.js"></script>
   <script src="/js/user.service.js"></script>
   <script src="/js/weekly.controller.js"></script>
+  <script src="/js/weekly-create.controller.js"></script>
   <script src='/js/weekly.resource.js'></script>
   <script src="/js/signin.controller.js"></script>
   <script src="/js/navbar.controller.js"></script>

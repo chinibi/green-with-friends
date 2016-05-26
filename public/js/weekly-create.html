@@ -1,0 +1,30 @@
+<div class='container'>
+
+  <h1>Create weekly</h1>
+
+  <form ng-submit="wcc.createWeekly()">
+
+    <div class="form-group">
+      <label for="badge">Badge Name</label>
+      <input ng-model="wcc.badge" name="badge" class="form-control" id="badge" />
+      <label for="description">Description</label>
+      <input ng-model="wcc.description" name="description" type="text-field" class="form-control" id="description" />
+      <label for="imgURL">Image URL</label>
+      <input ng-model="wcc.imgURL" name="imgURL" class="form-control" id="imgURL" />
+    </div>
+
+    <div class="form-group">
+      Challenges
+      <div class="input-group" ng-repeat="challenge in wcc.challenges">
+        <input class="form-control" ng-model="challenge.description" />
+        <span class="input-group-btn">
+          <button class="btn btn-danger" ng-click="wcc.removeChallengeField(challenge)" type="button">×</button>
+        </span>
+      </div>
+    </div>
+
+    <a ng-click="wcc.addChallengeField()">Add another challenge</a>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>

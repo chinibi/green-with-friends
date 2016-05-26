@@ -4,6 +4,7 @@ var User = require('../models/user');
 module.exports = {
   show:       show,
   update:     update,
+  create:     create,
   awardBadge: awardBadge
 }
 
@@ -49,7 +50,14 @@ function show(req, res, next) {
 }
 
 function create(req, res, next) {
-  
+  var newWeekly = new Weekly(req.body);
+
+  newWeekly.save()
+    .then(saved => res.json(saved))
+    .catch(err => {
+      console.log(err);
+      next(err);
+    })
 }
 
 function update(req, res, next) {

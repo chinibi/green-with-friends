@@ -30,6 +30,12 @@
         templateUrl:  "/js/weekly.html",
         controller:   "WeeklyController",
         controllerAs: "wc"
+      })
+      .state("weekly-new", {
+        url:          "/new-weekly",
+        templateUrl:  "/js/weekly-create.html",
+        controller:   "WeeklyCreateController",
+        controllerAs: "wcc"
       });
 
     $urlRouterProvider.otherwise("/");
