@@ -15,8 +15,8 @@ var personalWeeklySchema = new mongoose.Schema({
 });
 
 var badgeSchema = new mongoose.Schema({
-  name: {type: String, unique: true},
-  imgURL: {type: String, unique: true}
+  name: String,
+  imgURL: String
 })
 
 var userSchema = mongoose.Schema({

@@ -25,10 +25,12 @@ function show(req, res, next) {
     .then(weekly => {
       thisBadge = weekly[0].badge;
       thisWeekly = weekly[0];
+      console.log(weekly)
       return User.findOne({username: req.decoded.username}).exec()
     })
     .then(user => {
-      if (typeof user.weekly[0].badge === 'undefined') {
+      if (typeof user.weekly[0] === 'undefined') {
+        console.log('no badge found')
         user.weekly = thisWeekly;
         user.save()
         res.json(user.weekly[0])
