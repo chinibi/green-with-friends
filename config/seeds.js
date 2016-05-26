@@ -6,7 +6,6 @@ var Weekly = require('../models/weekly');
 
 var users = [
   { username: 'admin',
-    displayname: 'admin',
     password: process.env.ADMIN_PASSWORD,
     badges: [
       { name: 'Water Conservation',

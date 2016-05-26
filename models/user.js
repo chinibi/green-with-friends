@@ -9,8 +9,6 @@ var personalWeeklySchema = new mongoose.Schema({
   description: String,
   badge: String,
   imgURL: String,
-  date: String,
-  week: Number,
   challenges: [challengeSchema]
 });
 
@@ -21,7 +19,6 @@ var badgeSchema = new mongoose.Schema({
 
 var userSchema = mongoose.Schema({
   username: {type: String, unique: true, required: true},
-  displayname: {type: String, required: true},
   badges: [badgeSchema],
   weekly: [personalWeeklySchema]
 });
