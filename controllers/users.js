@@ -46,3 +46,18 @@ function me(req, res, next) {
       next(err);
     });
 };
+
+// function createFriendRequest(req, res, next) {
+//   User
+//     .findOne({username: req.body.username}).exec()
+//     .then(user => {
+//       user.friendRequests.push({
+//         user: req.decoded.username
+//       })
+//       res.json({
+//         success: true,
+//         message: 'Successfully found user.',
+//         data: user
+//       })
+//     })
+// }
