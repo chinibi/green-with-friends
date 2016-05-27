@@ -53,7 +53,7 @@ var weeklies = [
       {description: "Hang your laundry to air dry."}
     ]
   },
-  { description: 'Recyclables include metals, paper, cardboard, glass, plastic, batteries, light bults, and electronics.',
+  { description: 'Recyclables include metals, paper, cardboard, glass, plastic, batteries, light bulbs, and electronics.',
     badge: 'Recycling and Waste',
     imgURL: 'images/Grey1.png',
     week: 4,

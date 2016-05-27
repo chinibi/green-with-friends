@@ -1,6 +1,7 @@
 <div class='pageload container'>
 <div class="sign-in-form" ng-hide="vm.toggleValue">
   <h1>Sign In</h1>
+  <small>{{vm.error}}</small>
 
   <form ng-submit="vm.submitLogIn();" name="signInForm" novalidate>
     <div class="form-group">
@@ -24,6 +25,7 @@
 
 <div class="sign-up-form" ng-show="vm.toggleValue">
   <h1>Sign Up</h1>
+  <small>{{vm.error}}</small>
 
   <form ng-submit="vm.submitSignUp();">
     <div class="form-group">

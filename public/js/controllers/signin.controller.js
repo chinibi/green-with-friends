@@ -32,6 +32,7 @@
           },
           // on error
           function(err) {
+            vm.error = err.data;
             if (err.status === 409) vm.conflict = true;
             $log.info('Error Claire-r:', err);
           }
@@ -49,6 +50,7 @@
           },
           // on error
           function(err) {
+            vm.error = err.data;
             $log.info('Error:', err);
           }
         );
