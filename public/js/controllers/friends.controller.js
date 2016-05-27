@@ -48,7 +48,8 @@
       })
       .then(newFriend => {
         vm.friendRequests.splice(vm.friendRequests.indexOf(invite), 1);
-        vm.friends.unshift(newFriend);
+        vm.friendList.unshift(newFriend.data);
+        console.log(vm.friendList)
       })
     }
 

@@ -12,16 +12,18 @@
   </form>
 
   <h4>Friend Requests</h4>
-  <ul>
-    <li ng-repeat="request in fc.friendRequests">
-      {{request.username}}
-      <button ng-click="fc.acceptRequest(request)">Accept</button>
-    </li>
-  </ul>
+  <table class='table'>
+    <tr ng-repeat="request in fc.friendRequests">
+      <td>{{request.username}}</td>
+      <td><button class='btn btn-success' ng-click="fc.acceptRequest(request)">Accept</button></td>
+    </tr>
+  </table>
 
   <h4>Friends List</h4>
-  <ul>
-    <li ng-repeat='friend in fc.friendList'>{{friend.username}}</li>
-  </ul>
+  <table class='table'>
+    <tr ng-repeat='friend in fc.friendList'>
+      <td>{{friend.username}}</td>
+    </tr>
+  </table>
 
 </div>

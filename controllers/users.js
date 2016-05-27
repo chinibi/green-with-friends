@@ -76,20 +76,23 @@ function acceptFriendRequest(req, res, next) {
   console.log(req.body)
   User.findOne({username: req.body.username}).exec()
     .then(requestor => { // add friend to requestor
-      var acceptor = {username: req.decoded.username, id: req.decoded.id}
+      var acceptor = {username: req.decoded.username}
       requestor.friends.push(acceptor)
       requestor.save();
+      console.log(requestor.friends)
       return User.findOne({username:req.decoded.username}).exec()
     })
     .then(acceptor => { // add friend to acceptor
       acceptor.friends.push(req.body)
-      acceptor.friends = acceptor.friendRequests.filter(request => {
+      acceptor.friendRequests = acceptor.friendRequests.filter(request => {
         return request.username != req.body.username
       })
 
       return acceptor.save()
     })
-    .then(saved => res.json(saved))
+    .then(saved => res.json({
+      username: req.body.username
+    }))
     .catch(err => {
       console.log(err)
       next(err)
