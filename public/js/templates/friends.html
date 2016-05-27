@@ -1,0 +1,27 @@
+<div class="pageload container">
+
+  <h1>Friends</h1>
+
+  <h4>New Friend Request</h4>
+  <form ng-submit="fc.newRequest()">
+    <div class="form-group">
+      <label for="newRequest">Type in the username you want to add.</label>
+      <input ng-model="fc.friendRequestUsername" class="form-control" id="newRequest" required/>
+      <input class='btn btn-default' type='submit' />
+    </div>
+  </form>
+
+  <h4>Friend Requests</h4>
+  <ul>
+    <li ng-repeat="request in fc.friendRequests">
+      {{request.username}}
+      <button ng-click="fc.acceptRequest(request)">Accept</button>
+    </li>
+  </ul>
+
+  <h4>Friends List</h4>
+  <ul>
+    <li ng-repeat='friend in fc.friendList'>{{friend.username}}</li>
+  </ul>
+
+</div>

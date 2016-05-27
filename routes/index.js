@@ -12,6 +12,8 @@ var token = require('../config/token_auth');
 router.post('/api/users',    usersCtrl.create);
 router.get( '/api/users/me', token.authenticate, usersCtrl.me);
 router.post('/api/users/me', token.authenticate, weeklyCtrl.awardBadge);
+router.post('/api/users/friends/new', token.authenticate, usersCtrl.createFriendRequest);
+router.post('/api/users/friends/accept', token.authenticate, usersCtrl.acceptFriendRequest);
 
 router.post('/api/token',    token.create);
 

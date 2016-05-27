@@ -3,7 +3,9 @@ var User = require("../models/user");
 
 module.exports = {
   create:     create,
-  me:         me
+  me:         me,
+  createFriendRequest: createFriendRequest,
+  acceptFriendRequest: acceptFriendRequest
 };
 
 function create(req, res, next) {
@@ -47,17 +49,49 @@ function me(req, res, next) {
     });
 };
 
-// function createFriendRequest(req, res, next) {
-//   User
-//     .findOne({username: req.body.username}).exec()
-//     .then(user => {
-//       user.friendRequests.push({
-//         user: req.decoded.username
-//       })
-//       res.json({
-//         success: true,
-//         message: 'Successfully found user.',
-//         data: user
-//       })
-//     })
-// }
+function createFriendRequest(req, res, next) {
+  User
+    .findOne({username: req.body.username}).exec()
+    .then(user => {
+      if (!req.decoded) {
+        next('You must be logged in to do this.')
+      }
+      console.log(user)
+      user.friendRequests.push({
+        username: req.decoded.username,
+        id: req.decoded.id
+      })
+      user.save()
+      console.log(user)
+      res.json({
+        success: true,
+        message: 'Successfully found user.',
+        data: user
+      })
+    })
+    .catch(err => next(err))
+}
+
+function acceptFriendRequest(req, res, next) {
+  console.log(req.body)
+  User.findOne({username: req.body.username}).exec()
+    .then(requestor => { // add friend to requestor
+      var acceptor = {username: req.decoded.username, id: req.decoded.id}
+      requestor.friends.push(acceptor)
+      requestor.save();
+      return User.findOne({username:req.decoded.username}).exec()
+    })
+    .then(acceptor => { // add friend to acceptor
+      acceptor.friends.push(req.body)
+      acceptor.friends = acceptor.friendRequests.filter(request => {
+        return request.username != req.body.username
+      })
+
+      return acceptor.save()
+    })
+    .then(saved => res.json(saved))
+    .catch(err => {
+      console.log(err)
+      next(err)
+    })
+}

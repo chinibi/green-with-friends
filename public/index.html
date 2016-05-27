@@ -43,6 +43,9 @@
               <a ng-show="vm.authService.isLoggedIn()" ui-sref="weekly-new">Create new weekly</a>
             </li>
             <li>
+              <a ng-show="vm.authService.isLoggedIn()" ui-sref="friends">Friends</a>
+            </li>
+            <li>
               <a ng-show="vm.authService.isLoggedIn()" ng-click="vm.goToProfile()">{{vm.authService.username}}</a>
             </li>
             <li>
@@ -84,6 +87,7 @@
   <script src="/js/controllers/signin.controller.js"></script>
   <script src="/js/controllers/navbar.controller.js"></script>
   <script src="/js/controllers/profile.controller.js"></script>
+  <script src="/js/controllers/friends.controller.js"></script>
 
   <!-- Bootstrap SCRIPTS AND jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

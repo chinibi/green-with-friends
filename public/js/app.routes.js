@@ -20,10 +20,16 @@
         controllerAs: "vm"
       })
       .state("profile", {
-        url:         "/profile",
-        templateUrl: "/js/templates/profile.html",
-        controller:  "ProfileController",
+        url:          "/profile",
+        templateUrl:  "/js/templates/profile.html",
+        controller:   "ProfileController",
         controllerAs: "pc"
+      })
+      .state("friends", {
+        url:          "/friends",
+        templateUrl:  "/js/templates/friends.html",
+        controller:   "FriendsController",
+        controllerAs: "fc"
       })
       .state("weekly", {
         url:          "/weekly",
