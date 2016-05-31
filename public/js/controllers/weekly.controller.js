@@ -66,7 +66,7 @@
       })
     }
 
-    function goToProfile() {
+    function goToProfile() { // what is ui-sref?
       $state.go('profile')
     }
 
