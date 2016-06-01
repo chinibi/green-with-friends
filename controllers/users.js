@@ -56,13 +56,11 @@ function createFriendRequest(req, res, next) {
       if (!req.decoded) {
         next('You must be logged in to do this.')
       }
-      console.log(user)
       user.friendRequests.push({
         username: req.decoded.username,
         id: req.decoded.id
       })
       user.save()
-      console.log(user)
       res.json({
         success: true,
         message: 'Successfully found user.',
