@@ -59,10 +59,7 @@ function createFriendRequest(req, res, next) {
       if (!req.decoded) {
         next('You must be logged in to do this.')
       }
-      user.friendRequests.push({
-        username: req.decoded.username,
-        id: req.decoded.id
-      })
+      user.friendRequests.push(req.decoded.id)
       user.save()
       res.json({
         success: true,
@@ -75,27 +72,22 @@ function createFriendRequest(req, res, next) {
 
 function acceptFriendRequest(req, res, next) {
   console.log(req.body)
-  User.findOne({username: req.body.username}).exec()
+  User.findById(req.body._id).exec()
     .then(requestor => { // add friend to requestor
-      var acceptor = {username: req.decoded.username}
-      requestor.friends.push(acceptor)
+      var acceptor = req.decoded.id;
+      requestor.friends.push(acceptor);
       requestor.save();
-      console.log(requestor.friends)
-      return User.findOne({username:req.decoded.username}).exec()
+      return User.findById(req.decoded.id).exec()
     })
     .then(acceptor => { // add friend to acceptor
-      acceptor.friends.push(req.body)
-      acceptor.friendRequests = acceptor.friendRequests.filter(request => {
-        return request.username != req.body.username
-      })
+      acceptor.friends.push(req.body._id);
+      acceptor.friendRequests.splice(acceptor.friendRequests.indexOf(req.body._id), 1);
 
       return acceptor.save()
     })
-    .then(saved => res.json({
-      username: req.body.username
-    }))
+    .then(saved => res.json(req.body))
     .catch(err => {
-      console.log(err)
-      next(err)
+      console.log(err);
+      next(err);
     })
 }
