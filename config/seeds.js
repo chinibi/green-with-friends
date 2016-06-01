@@ -4,19 +4,32 @@ var mongoose = require('./database');
 var User = require('../models/user');
 var Weekly = require('../models/weekly');
 
-var users = [
-  { username: 'admin',
-    password: process.env.ADMIN_PASSWORD,
-    badges: [
-      { name: 'Water Conservation',
-        imgURL: 'images/Water.png'
-      },
-      { name: 'Energy Saver',
-        imgURL: 'images/Energy.png'
-      }
-    ]
-  }
-];
+var admin = new User({
+  username: 'admin',
+  password: process.env.ADMIN_PASSWORD,
+  badges: [
+    { name: 'Water Conservation',
+      imgURL: 'images/Water.png'
+    },
+    { name: 'Energy Saver',
+      imgURL: 'images/Energy.png'
+    }
+  ]
+});
+
+var regUser = new User({
+  username: 'user',
+  password: 'user'
+})
+
+var regUser2 = new User({
+  username: 'username',
+  password: 'user',
+  friendRequests: [regUser._id],
+  friends: [admin._id]
+})
+
+var users = [admin, regUser, regUser2];
 
 var weeklies = [
   { description: 'If you use a low-flow showerhead, you can save 15 gallons of water during a 10 minute shower.',

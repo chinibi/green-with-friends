@@ -21,8 +21,13 @@
 
   <h4>Friends List</h4>
   <table class='table'>
+    <tr>
+      <th class="text-center">Username</th>
+      <th class="text-center">Badges Earned</th>
+    </tr>
     <tr ng-repeat='friend in fc.friendList'>
       <td>{{friend.username}}</td>
+      <td>{{friend.badges.length}}</td>
     </tr>
   </table>
 

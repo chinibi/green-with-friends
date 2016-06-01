@@ -17,22 +17,20 @@ var badgeSchema = new mongoose.Schema({
   imgURL: String
 })
 
-var friendSchema = new mongoose.Schema({
-  username: String,
-  id: String
-})
-
-var friendRequestSchema = new mongoose.Schema({
-  username: String,
-  id: String
-})
+// var friendSchema = new mongoose.Schema({
+//   user: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
+// })
+//
+// var friendRequestSchema = new mongoose.Schema({
+//   user: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
+// })
 
 var userSchema = mongoose.Schema({
   username: {type: String, unique: true, required: true},
   badges: [badgeSchema],
   weekly: [personalWeeklySchema],
-  friends: [friendSchema],
-  friendRequests: [friendRequestSchema]
+  friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+  friendRequests: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
 // add bcrypt hashing to model (works on a password field)!

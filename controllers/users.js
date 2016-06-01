@@ -36,8 +36,11 @@ function create(req, res, next) {
 
 function me(req, res, next) {
   User
-    .findOne({username: req.decoded.username}).exec()
+    .findOne({username: req.decoded.username})
+    .populate('friends friendRequests', 'username badges')
+    .exec()
     .then(function(user) {
+      console.log(user)
       res.json({
         success: true,
         message: 'Successfully retrieved user data.',
