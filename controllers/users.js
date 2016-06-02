@@ -39,17 +39,14 @@ function me(req, res, next) {
     .findById(req.decoded.id)
     .populate('friends friendRequests', 'username badges')
     .exec()
-    .then(function(user) {
-      console.log(user)
+    .then(user => {
       res.json({
         success: true,
         message: 'Successfully retrieved user data.',
         data: user
       });
     })
-    .catch(function(err) {
-      next(err);
-    });
+    .catch(err => next(err));
 };
 
 function createFriendRequest(req, res, next) {
