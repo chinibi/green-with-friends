@@ -77,12 +77,13 @@ function acceptFriendRequest(req, res, next) {
       var acceptor = req.decoded.id;
       requestor.friends.push(acceptor);
       requestor.save();
+
       return User.findById(req.decoded.id).exec()
     })
     .then(acceptor => { // add friend to acceptor
-      acceptor.friends.push(req.body._id);
-      acceptor.friendRequests.splice(acceptor.friendRequests.indexOf(req.body._id), 1);
-
+      var requestor = req.body._id;
+      acceptor.friends.push(requestor);
+      acceptor.friendRequests.splice(acceptor.friendRequests.indexOf(requestor), 1);
       return acceptor.save()
     })
     .then(saved => res.json(req.body))
