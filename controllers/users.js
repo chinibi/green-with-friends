@@ -1,5 +1,4 @@
 var User = require("../models/user");
-// var Weekly = require("../models/weekly");
 
 module.exports = {
   create:     create,
