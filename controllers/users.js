@@ -36,7 +36,7 @@ function create(req, res, next) {
 
 function me(req, res, next) {
   User
-    .findOne({username: req.decoded.username})
+    .findById(req.decoded.id)
     .populate('friends friendRequests', 'username badges')
     .exec()
     .then(function(user) {
