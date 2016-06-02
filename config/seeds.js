@@ -29,6 +29,8 @@ var regUser2 = new User({
   friends: [admin._id]
 })
 
+admin.friendRequests = [regUser._id];
+admin.friends        = [regUser2._id];
 var users = [admin, regUser, regUser2];
 
 var weeklies = [
