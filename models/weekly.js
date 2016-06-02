@@ -7,7 +7,7 @@ var challengeSchema = new mongoose.Schema({
 
 var weeklySchema = new mongoose.Schema({
   description: String,
-  badge: {type: String, required: true},
+  badge: {type: String, required: true, unique: true},
   imgURL: String,
   challenges: [challengeSchema]
 });
