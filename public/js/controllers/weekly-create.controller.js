@@ -57,7 +57,7 @@
       .then(() => {
         vm.newWeekly = {};
         hideThis();
-        $timeout(showThis(), 500)
+        $timeout(showThis, 500)
         $timeout(() => {
           $state.go('welcome')
         }, 2000)

@@ -66,7 +66,7 @@
       })
     }
 
-    function goToProfile() { // what is ui-sref?
+    function goToProfile() { // ui-sref won't work on bootstrap modals
       $state.go('profile')
     }
 

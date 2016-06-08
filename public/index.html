@@ -46,7 +46,7 @@
               <a ng-show="vm.authService.isLoggedIn()" ui-sref="friends">Friends</a>
             </li>
             <li>
-              <a ng-show="vm.authService.isLoggedIn()" ng-click="vm.goToProfile()">{{vm.authService.username}}</a>
+              <a ng-show="vm.authService.isLoggedIn()" ui-sref="profile">{{vm.authService.username}}</a>
             </li>
             <li>
               <a ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()">Sign out</a>
