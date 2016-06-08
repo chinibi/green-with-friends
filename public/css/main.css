@@ -16,7 +16,6 @@
 }
 
 .jumbotron {
-  height: 100vh;
   background-color: rgba(144,238,144,0.3);
 }
 
@@ -77,8 +76,14 @@
   margin-right: auto;
 }
 
+.fp-section {
+  max-width: 1000px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 body {
-  font-family: futura;
+  font-family: futura, "lucida grande";
   font-size: 18px;
   background-color: rgba(144,238,144,0.3);
   /*padding-top: 70px;*/
