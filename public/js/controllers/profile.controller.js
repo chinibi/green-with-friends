@@ -17,7 +17,7 @@
         method: 'GET',
         url: '/api/users/me',
       })
-      .then(user => {
+      .then(function(user) {
         vm.badges = user.data.data.badges
       })
     }

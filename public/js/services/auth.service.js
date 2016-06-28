@@ -24,7 +24,7 @@
         method: 'GET',
         url: '/api/users/me'
       })
-      .then(user => {
+      .then(function(user) {
         service.username = user.data.data.username
       })
     }

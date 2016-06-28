@@ -26,7 +26,7 @@
         method: 'GET',
         url: "/api/weekly",
       })
-      .then(weekly => {
+      .then(function(weekly) {
         vm.weekly = weekly.data;
       })
     }
@@ -41,14 +41,14 @@
         url: '/api/weekly',
         data: vm.weekly
       })
-      .then(updated => {
+      .then(function(updated) {
         vm.weekly = updated.data.weekly[0]
         $state.go('weekly')
       })
     }
 
     function checkAllDone() {
-      vm.allDone = (vm.weekly.challenges.every(challenge => {
+      vm.allDone = (vm.weekly.challenges.every(function(challenge) {
         return challenge.completed
       }))
     }

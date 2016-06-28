@@ -20,7 +20,7 @@
     getFriends();
     function getFriends() {
       userService.me()
-        .then(user => {
+        .then(function(user) {
           console.log(user)
           vm.friendRequests = user.data.data.friendRequests
           vm.friendList = user.data.data.friends;
@@ -34,7 +34,7 @@
         url: '/api/users/friends/new',
         data: vm.friendRequestBody
       })
-      .then(() => {
+      .then(function() {
         vm.friendRequestUsername = '';
         alert('friend request submitted')
       })
@@ -46,7 +46,7 @@
         url: '/api/users/friends/accept',
         data: invite
       })
-      .then(newFriend => {
+      .then(function(newFriend) {
         vm.friendRequests.splice(vm.friendRequests.indexOf(invite), 1);
         vm.friendList.unshift(newFriend.data);
         console.log(vm.friendList)
