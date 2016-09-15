@@ -5,7 +5,7 @@
     .module("app")
     .controller("WeeklyController", WeeklyController);
 
-  WeeklyController.$inject = ["$state", "$http"]/
+  WeeklyController.$inject = ["$state", "$http"];
 
   function WeeklyController($state, $http) {
     var vm = this;
