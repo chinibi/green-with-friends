@@ -1,0 +1,42 @@
+<div class='pageload container'>
+
+<div class='weekly'>
+  <h1>{{wc.weekly.badge}}</h1>
+  <p>
+    {{wc.weekly.description}}
+  </p>
+  <img class='weekly-img' ng-src="{{wc.weekly.imgURL}}" class='img-responsive' />
+  <h3>Your challenges this week</h3>
+  <table class='table container-fluid'>
+    <tr ng-repeat='challenge in wc.weekly.challenges'>
+      <td class='challenge-description'>{{challenge.description}}</td>
+      <td>
+        <input type='checkbox' name='challenges[{{$index}}]' ng-model='challenge.completed' ng-click='wc.checkbox(challenge)'/>
+      </td>
+    </tr>
+  </table>
+
+  <button type='button' class='btn btn-lg' ng-class='{"btn-success": wc.allDone, "disabled": !wc.allDone}' ng-click='wc.awardBadge()' data-toggle='modal' data-target='#badgeModal' ng-disabled='!wc.allDone'>Finish</button>
+</div>
+
+</div>
+
+<div id="badgeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Congratulations!</h4>
+      </div>
+      <div class="modal-body">
+        <p>You earned the {{wc.weekly.badge}} badge!</p>
+      </div>
+      <div class="modal-footer">
+        <button ng-click="wc.goToProfile()" type="button" class="btn btn-default" data-dismiss="modal">See your badges</button>
+      </div>
+    </div>
+
+  </div>
+</div>

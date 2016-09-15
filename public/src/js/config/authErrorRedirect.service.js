@@ -22,7 +22,7 @@
       // If you ever get a 401 or 403 (no authentication or
       // bad authorization) error, redirect to the sign in page.
       if (err.status === 401 || err.status === 403) {
-        $log.debug(`${status} response received! Redirecting user to signin.`);
+        $log.debug(status + ' response received! Redirecting user to signin.');
       }
 
       // Now that we've done our due diligence, pass the error through

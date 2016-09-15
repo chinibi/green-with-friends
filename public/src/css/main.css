@@ -1,0 +1,160 @@
+#navbar {
+  background-color: #34DFBB;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 7px 15px;
+  width: auto;
+}
+
+.jumbotron {
+  background-color: rgba(144,238,144,0.3);
+}
+
+.jumbotron li span {
+  opacity: 0;
+  -webkit-animation: forwards;
+  -webkit-animation-name: jumbotron-span;
+  -webkit-animation-delay: 1.5s;
+  -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes jumbotron-span {
+  from {
+    position: relative;
+    top: 15px;
+    opacity: 0.0;
+  }
+  to {
+    position: relative;
+    top: 0px;
+    opacity: 1.0;
+  }
+}
+
+.jumbotron h1 {
+  -webkit-animation-name: jumbotron-h1;
+  -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes jumbotron-h1 {
+  from {opacity: 0.0;}
+  to   {opacity: 1.0;}
+}
+
+.fade {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.emerge {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.pageload {
+  animation: forwards;
+  animation-name: pageload;
+  animation-duration: 0.9s;
+}
+
+@keyframes pageload {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+
+.profile-badge {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fp-section {
+  max-width: 1000px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.glyphicon-log-in, .glyphicon-check, .glyphicon-leaf {
+  font-size: 6em;
+  margin-bottom: 15px;
+}
+
+body {
+  font-family: futura, verdana;
+  font-size: 18px;
+  background-color: rgba(144,238,144,0.3);
+  /*padding-top: 70px;*/
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.greentext {
+  color: green;
+}
+
+.weekly img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:50px;
+    height:50px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    vertical-align: middle;
+    position: relative;
+    bottom: 0 px;
+    margin-bottom: 10px;
+}
+
+input[type='checkbox']:checked {
+    background: lightgreen;
+}
+
+main,
+footer {
+  text-align: center;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+footer {
+  font-size: 14px;
+  padding-top: 14px;
+  padding-bottom: 35px;
+  border-top: 1px solid gray;
+  color: rgba(0,0,0,0.4);
+}
+
+form {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#exampleInputEmail1.red-border {
+  border: 2px solid red;
+}
