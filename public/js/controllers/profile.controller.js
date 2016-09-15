@@ -2,9 +2,9 @@
 
   angular
     .module('app')
-    .controller('ProfileController', ProfileController)
+    .controller('ProfileController', ProfileController);
 
-  ProfileController.$inject = ['$http']
+  ProfileController.$inject = ['$http'];
 
   function ProfileController($http, $window, userService) {
     var vm = this;
@@ -18,8 +18,8 @@
         url: '/api/users/me',
       })
       .then(function(user) {
-        vm.badges = user.data.data.badges
-      })
+        vm.badges = user.data.data.badges;
+      });
     }
   }
 })();

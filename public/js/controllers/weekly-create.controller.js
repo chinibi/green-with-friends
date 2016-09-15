@@ -37,8 +37,8 @@
 
     function removeChallengeField(remove) {
       vm.challenges = vm.challenges.filter(function(challenge) {
-        return challenge != remove
-      })
+        return challenge != remove;
+      });
     }
 
     function createWeekly() {
@@ -57,10 +57,10 @@
       .then(function() {
         vm.newWeekly = {};
         hideThis();
-        $timeout(showThis, 500)
+        $timeout(showThis, 500);
         $timeout(function() {
-          $state.go('welcome')
-        }, 2000)
+          $state.go('welcome');
+        }, 2000);
       });
     }
 
@@ -68,14 +68,14 @@
       vm.startFade = true;
       $timeout(function() {
         vm.hidden = true;
-      }, 500)
+      }, 500);
     }
 
     function showThis() {
       vm.startEmerge = true;
       $timeout(function() {
         vm.emerge = true;
-      }, 500)
+      }, 500);
     }
 
   }

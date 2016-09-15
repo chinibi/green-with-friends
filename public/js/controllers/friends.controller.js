@@ -21,10 +21,10 @@
     function getFriends() {
       userService.me()
         .then(function(user) {
-          console.log(user)
-          vm.friendRequests = user.data.data.friendRequests
+          console.log(user);
+          vm.friendRequests = user.data.data.friendRequests;
           vm.friendList = user.data.data.friends;
-        })
+        });
     }
 
     function newRequest() {
@@ -36,8 +36,8 @@
       })
       .then(function() {
         vm.friendRequestUsername = '';
-        alert('friend request submitted')
-      })
+        alert('friend request submitted');
+      });
     }
 
     function acceptRequest(invite) {
@@ -49,8 +49,8 @@
       .then(function(newFriend) {
         vm.friendRequests.splice(vm.friendRequests.indexOf(invite), 1);
         vm.friendList.unshift(newFriend.data);
-        console.log(vm.friendList)
-      })
+        console.log(vm.friendList);
+      });
     }
 
   }

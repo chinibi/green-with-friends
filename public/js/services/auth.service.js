@@ -25,12 +25,12 @@
         url: '/api/users/me'
       })
       .then(function(user) {
-        service.username = user.data.data.username
-      })
+        service.username = user.data.data.username;
+      });
     }
 
     function isLoggedIn() {
-      return (token.retrieve() != null);
+      return (token.retrieve() !== null);
     }
 
     function logIn(data) {
@@ -47,7 +47,7 @@
         // handler, and pass on the decoded token.
         function(res) {
           token.store(res.data);
-          getUsername()
+          getUsername();
           return token.decode();
         }
         // since there is no error handler, pass
@@ -60,7 +60,7 @@
     }
     function logOut() {
       token.destroy();
-      $state.go('welcome')
+      $state.go('welcome');
     }
   }
 
