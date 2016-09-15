@@ -30,7 +30,7 @@ if (app.get('env') === 'development') {
 app.use(logger('dev'));
 
 // Static routing layer.
-app.use(favicon(path.join(__dirname, 'public', 'ga-favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'ga-favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Parse and debug requests.
